@@ -5,6 +5,12 @@ from flask import request
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
+api = Api(app)
+
+@app.route('/')
+def home():
+  return "I'm alive"
+
 
 @app.route('/api/createEntry', methods=['GET'])
 def createEntry():
