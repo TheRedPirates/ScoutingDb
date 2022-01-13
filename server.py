@@ -45,5 +45,46 @@ def print():
     pobj = javaobj.loads(bytearray.fromhex(objectbytes))
     return str(dir(pobj))
 
+def get_username(username):
+  with open('usernames.txt', 'r') as usernamefile:
+    line = usernamefile.read()
+    if username == str(line) or username in str(line) or username == str(line).split(' ') or username == str(line).split('\n'):
+      return True
+    else:
+      return False
+
+def create_account(username):
+  with open('usernames.txt', 'a') as usernamefile:
+    if username in usernamefile.read():
+      usernamefile.write(' '+str(username))
+      return True
+    else:
+      return False
+
+class Quotes(Resource):
+  def get(self, quote_type):
+    return get_quotes(quote_type)
+
+class Username(Resource):
+  def get(self, username):
+    return get_username(username)
+
+class CreateAccount(Resource):
+    def get(self, username):
+      return create_account(username)
+
+class Facts(Resource):
+  def get(self, fact_type):
+    return get_facts(fact_type)
+
+  
+
+#api.add_resource(Test, '/api/restful')
+api.add_resource(Quotes, '/api/quotes/<string:quote_type>')
+api.add_resource(Facts, '/api/facts/<string:fact_type>')
+api.add_resource(Username,'/api/username/<string:username>')
+api.add_resource(CreateAccount,'/api/createaccount/<string:username>')
+
+  
 app.run(host='127.0.0.1',port=80)
 
