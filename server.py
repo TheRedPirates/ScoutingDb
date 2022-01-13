@@ -39,5 +39,5 @@ def print():
     pobj = javaobj.loads(bytearray.fromhex(objectbytes))
     return str(dir(pobj))
 
-app.run()
+app.run(host='127.0.0.1',port=80)
 
