@@ -13,7 +13,8 @@ def createEntry():
     with open("entries.json") as fp:
         entries = json.load(fp)
     entries.append({
-        "TeamNumber":pobj.TeamNumber,
+        "userTeam":pobj.userTeam,
+        "userName":pobj.userName,
         "GameNumber":pobj.GameNumber,
         "b_defence":pobj.b_defence,
         "b_unsure":pobj.b_unsure,
