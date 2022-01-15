@@ -18,12 +18,11 @@ def createEntry():
     entries.write(string)
     entries.close()
     return "succsesfully created entry"
-    
+
 @app.route('/api/print', methods=['GET'])
 def print():
     objectbytes = request.args.get('object')
     pobj = javaobj.loads(bytearray.fromhex(objectbytes))
     return str(dir(pobj))
 
-app.run(host='127.0.0.1',port=80)
-
+app.run(host='0.0.0.0',port=5000)
