@@ -1,0 +1,27 @@
+div{
+
+}
+
+body{
+    text-align: center;
+    background: #ff7878;
+}
+h1{
+    font-size: 250%;
+}
+
+p{
+ font-size: 200%;
+}
+.registerbtn{
+    border-radius: 3em;
+    outline: none;
+    font-size: 200%;
+    background: rgba(255, 120, 120, 0.59);
+    border-color: #ff6f6f;
+    border-width: 0.3rem;
+    /*border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;*/
+}
