@@ -3,7 +3,7 @@ import javaobj
 import csv
 import flask
 import os
-from flask import render_template, request
+from flask import render_template, request, flash
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
@@ -29,12 +29,8 @@ def Register():
         file.write("Alias,TeamNumber,GameNumber,b_defence,b_unsure,b_offence,AutoUpper,AutoLower,TeleUpper,TeleLower,Ranking,Notes,C1,C2,C3,C4\n")
     
     os.chdir('..')
-    
-    return f"""
-        Successfully registered team,
-        Please save and use this token in your login credentials on our mobile app:
-        {teamtoken}
-        """
+   
+    flash(f'Save this token: {teamtoken}, it will be used in your login credentials in the application')
 
 @app.route('/api/login')
 def Login():
